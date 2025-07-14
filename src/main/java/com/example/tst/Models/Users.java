@@ -1,11 +1,19 @@
 package com.example.tst.Models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @Entity
 public class Users {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private String username;
+    private String password;
     public int getId() {
         return id;
     }
@@ -30,8 +38,5 @@ public class Users {
         this.password = password;
     }
 
-    @Id
-    private int id;
-    private String username;
-    private String password;
+
 }
